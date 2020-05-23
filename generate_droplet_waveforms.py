@@ -11,14 +11,14 @@ if __name__ == '__main__':
 
     data_dir = pl.Path("data/droplet_test_acq_2020-02-21")
 
-    left_border = 145.01
-    right_border = 145.08
+    left_border = 179.5
+    right_border = 179.6
 
-    pmt_data = pmt.PmtData(data_dir.joinpath("recording_green_02_100kHz_1.txt.gz"),
+    pmt_data = pmt.PmtData(data_dir.joinpath("recording_green_100kHz_02.txt.gz"),
                            acquisition_rate=100000)
 
     pmt_overview_fig, pmt_overview_ax = plt.subplots(1, 1, figsize=(150, 10))
-    pmt_data.plot_pmt_data(pmt_overview_ax)
+    pmt_data.plot_pmt_data(pmt_overview_ax, cut=(178, 180))
 
     pmt_overview_ax.set_ylim(bottom=0, top=0.1)
     pmt_overview_ax.axvline(left_border)
