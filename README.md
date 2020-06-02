@@ -1,5 +1,7 @@
 # Open FPGA control sub-project for Fluorescence Activated (Microfluidic) Droplet Sorting (FADS)
 
+The documentation of work on this project can be found on this repositorie's [wiki](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki)
+
 Repository for the development ... *high-throughput droplet microfluidic* biological assays.
 ... RedPitaya FPGA, Python, SiPM ...
 
