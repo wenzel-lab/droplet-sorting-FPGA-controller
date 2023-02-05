@@ -9,6 +9,8 @@ The overaching aim of this project is to *open up* microfluidic experimentation,
 
 After much consideration, we chose to base our development on the [RedPitaya](https://github.com/RedPitaya) computer board. Even though the FPGA chip itself and the compilation software of the Verilog code to program the FPGA are NOT Open Source, the RedPitaya board design is Open Source and cultivates an extensive academia-development-targeted Open Source software and tutorial framework. The board (here STEMlab 125-14) can also be purchased for ca. 300$ and contains a full linux computer with webserver, similar to the popular (non-FPGA) RasperriPi computer. Most importantly, it has two fast analogue input and output ports that are needed for droplet signal detection and sorting triggering. It is therefore a very accessible starting point. We have based our actual FPGA coding on the Open Source Python library [pyrpl](http://lneuhaus.github.io/pyrpl/).
 
+Note, the [RedPitaya](https://github.com/RedPitaya) now has an X-Channel product where single board computers can be stacked to expand the number of analogue input and output channels. We already have a 6-input channel version now and will soon be looking to adjust the software to work with 6 sensors in parallel.
+
 
 ## Documentation
 
