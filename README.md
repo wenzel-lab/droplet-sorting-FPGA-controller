@@ -14,21 +14,21 @@ Note, the [RedPitaya](https://github.com/RedPitaya) now has an X-Channel product
 
 ## Documentation
 
-The documentation of work on this project can be found on this repositorie's [wiki](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki).
+The documentation of work on this project can be found on this repositorie's [wiki](https://github.com/MakerTobey/Open_FADS_FPGA_control/wiki).
 
 It contains:
 
-** A description of our [development environment](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki/Development-Environment), 
+** A description of our [development environment](https://github.com/MakerTobey/Open_FADS_FPGA_control/wiki/Development-Environment), 
 
-** Detail on the [workflow](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki/Development-Workflow) for FADS including the Verilog code for the sorting trigger,
+** Detail on the [workflow](https://github.com/MakerTobey/Open_FADS_FPGA_control/wiki/Development-Workflow) for FADS including the Verilog code for the sorting trigger,
 
-** A [first GUI architecture](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki/GUI-Architecture) to look at signals and results,
+** A [first GUI architecture](https://github.com/MakerTobey/Open_FADS_FPGA_control/wiki/GUI-Architecture) to look at signals and results,
 
-** And detail on [memory access](https://github.com/MakerTobey/Open_FPGA_control_for_FADS/wiki/Memory-Access) - how to save results back into the memory of the main computer for web-server access.
+** And detail on [memory access](https://github.com/MakerTobey/Open_FADS_FPGA_control/wiki/Memory-Access) - how to save results back into the memory of the main computer for web-server access.
 
 
 ## Contribution guide
 
 This is an open collaborative project currently advanced by Nicolas Peschke and me; *your participation* (comments, inputs, contributions, issues) are explicitly welcome!
 
-Please get involved by extending the project or interacting with us by submitting an issue, contact us (e.g. [here](https://www.embl.de/research/units/scb/bork/members/index.php?s_personId=CP-60028623)). Particular extensions wanted are: Simplify the pyprl library fork to the needed tools in this context; further development of the GUI for the user/experimentor and to change the sorting parameters; collecting custom droplet sorting challenges not currently well addressed by exsisting literature examples; extension to more-dimensional questions (boards with more fast analougue inputs-outputs, sorting based on spectral analysis with detector array, sorting based on 2D detector arrays such as imaging detectors, sorting with additional sensor to verify positive sorting events, etc.).
+Please get involved by extending the project or interacting with us by submitting an issue, contact us (e.g. [here](https://ingenieriabiologicaymedica.uc.cl/en/people/faculty/821-tobias-wenzel)). Particular extensions wanted are: Simplify the pyprl library fork to the needed tools in this context; further development of the GUI for the user/experimentor and to change the sorting parameters; collecting custom droplet sorting challenges not currently well addressed by exsisting literature examples; extension to more-dimensional questions (boards with more fast analougue inputs-outputs, sorting based on spectral analysis with detector array, sorting based on 2D detector arrays such as imaging detectors, sorting with additional sensor to verify positive sorting events, etc.).
