@@ -16,7 +16,7 @@ Note, the [RedPitaya](https://github.com/RedPitaya) now has an X-Channel product
 
 ## Usage
 
-The documentation of work on this project can be found on this repositorie's [wiki](https://github.com/MakerTobey/droplet-sorting-FPGA-control/wiki).
+The documentation of work on this project can be found on this repositorie's [wiki](https://github.com/wenzel-lab/droplet-sorting-FPGA-controller/wiki).
 
 It contains:
 
