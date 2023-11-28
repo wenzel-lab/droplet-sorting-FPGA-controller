@@ -1,3 +1,4 @@
 [submodule "pyrpl-fads"]
-	path = pyrpl-fads
-	url = git@github.com:npeschke/pyrpl.git
+  path = pyrpl-fads
+  url = git@github.com:npeschke/pyrpl.git
+  branch = open_fpga_fads
