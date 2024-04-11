@@ -20,13 +20,13 @@ The documentation of work on this project can be found on this repositorie's [wi
 
 It contains:
 
-** A description of our [development environment](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Development-Environment), 
+* A description of our [development environment](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Development-Environment), 
 
-** Detail on the [workflow](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Development-Workflow) for FADS including the Verilog code for the sorting trigger,
+* Detail on the [workflow](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Development-Workflow) for FADS including the Verilog code for the sorting trigger,
 
-** A [first GUI architecture](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/GUI-Architecture) to look at signals and results,
+* A [first GUI architecture](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/GUI-Architecture) to look at signals and results,
 
-** And detail on [memory access](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Memory-Access) - how to save results back into the memory of the main computer for web-server access.
+* And detail on [memory access](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Memory-Access) - how to save results back into the memory of the main computer for web-server access.
 
 ## Contribute
 
