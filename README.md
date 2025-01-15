@@ -1,4 +1,4 @@
-# RITMO conductor: Open FPGA control sub-project for Fluorescence Activated (Microfluidic) Droplet Sorting (FADS) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+# RITMOS conductor: Open FPGA control sub-project for Fluorescence Activated (Microfluidic) Droplet Sorting (FADS) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 This repository addresses an aspect of microfluidic droplet sorting: The real-time computation solution for fluorescnece signal analysis, based on a FPGA-chip, here on board a small affordable computer with web-server, the [RedPitaya](https://github.com/RedPitaya). For a more general discussion of Fluorescence Activated (Microfluidic) Droplet Sorting (FADS), see the [Open Microfluidics repository](https://github.com/MakerTobey/OpenMicrofluidics/tree/master/Open%20Fluorescence%20Activated%20Droplet%20Sorting%20(FADS)), with emphasis on the measurement hardware. FADS is the keystone method of *high-throughput droplet microfluidic* biological assays.
 
