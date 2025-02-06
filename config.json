@@ -1,0 +1,155 @@
+{
+"variables_to_send": 
+    {
+    "min_intensity_thresh": {
+        "addr": ["0x01000", "0x01004", "0x01008", "0x0100c", "0x01010", "0x01014"],
+        "signed": true,
+        "bits_size": 14,
+        "data_type": "int"
+    },
+    "low_intensity_thresh": {
+        "addr": ["0x01020", "0x01024", "0x01028", "0x0102c", "0x01030", "0x01034"],
+        "signed": true,
+        "bits_size": 14,
+        "data_type": "int"
+    },
+    "high_intensity_thresh": {
+        "addr": ["0x01040", "0x01044", "0x01048", "0x0104c", "0x01050", "0x01054"],
+        "signed": true,
+        "bits_size": 14,
+        "data_type": "int"
+    },
+    "min_width_thresh": {
+        "addr": ["0x01060", "0x01064", "0x01068", "0x0106c", "0x01070", "0x01074"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "low_width_thresh": {
+        "addr": ["0x01080", "0x01084", "0x01088", "0x0108c", "0x01090", "0x01094"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "high_width_thresh": {
+        "addr": ["0x010a0", "0x010a4", "0x010a8", "0x010ac", "0x010b0", "0x010b4"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "min_area_thresh": {
+        "addr": ["0x010c0", "0x010c4", "0x010c8", "0x010cc", "0x010d0", "0x010d4"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "low_area_thresh": {
+        "addr": ["0x010e0", "0x010e4", "0x010e8", "0x010ec", "0x010f0", "0x010f4"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "high_area_thresh": {
+        "addr": ["0x01100", "0x01104", "0x01108", "0x0110c", "0x01110", "0x01114"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "fads_reset": {
+        "addr": "0x20",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "sort_delay": {
+        "addr": "0x24",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "sort_duration": {
+        "addr": "0x28",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "signal_duration": {
+        "addr": "0x100",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "droplet_id": {
+        "addr": "0x200",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    }, 
+    "cur_droplet_intensity": {
+        "addr": ["0x204", "0x208", "0x20c", "0x210", "0x214", "0x218"],
+        "signed": true,
+        "bits_size": 32,
+        "data_type": "int"
+    }, 
+    "cur_droplet_width": {
+        "addr": ["0x21c", "0x220", "0x224", "0x228", "0x22c", "0x230"],
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    }, 
+    "cur_droplet_area": {
+        "addr": ["0x234", "0x238", "0x23c", "0x240", "0x244", "0x248"],
+        "signed": true,
+        "bits_size": 32,
+        "data_type": "int"
+    }, 
+    "cur_time_us": {
+        "addr": "0x250",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    }, 
+    "droplet_classification": {
+        "addr": "0x24c",
+        "signed": false,
+        "bits_size": 8,
+        "data_type": "int"
+    }, 
+    "enabled_channels": {
+        "addr": "0x300",
+        "signed": false,
+        "bits_size": 6,
+        "data_type": "int"
+    }, 
+    "droplet_sensing_addr": {
+        "addr": "0x304",
+        "signed": false,
+        "bits_size": 3,
+        "data_type": "int"
+    }, 
+    "raw_voltage": {
+        "addr": "0x308",
+        "signed": true,
+        "bits_size": 14,
+        "data_type": "int"
+    },
+    "update_cycle": {
+        "addr": "0x10018",
+        "signed": false,
+        "bits_size": 32,
+        "data_type": "int"
+    },
+    "adc_values": {
+        "addr": ["0x30c", "0x310", "0x314", "0x318", "0x31c", "0x320"],
+        "signed": true,
+        "bits_size": 14,
+        "data_type": "int"
+    },
+    "cur_adc_data": {
+        "addr": ["0x10000", "0x10004", "0x10008", "0x1000c", "0x10010", "0x10014"],
+        "signed": false,
+        "bits_size": 14,
+        "data_type": "int"
+    }
+    }
+}
