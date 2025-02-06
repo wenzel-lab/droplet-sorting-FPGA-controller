@@ -1,4 +1,5 @@
-# RITMOS conductor: Open FPGA control sub-project for Fluorescence Activated (Microfluidic) Droplet Sorting (FADS) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+# RITMOS conductor [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+### The FPGA control software for ["RITMOS"](https://github.com/wenzel-lab/droplet-sorter-master), the Fluorescence Activated Droplet Sorter (FADS) 
 
 This repository addresses an aspect of microfluidic droplet sorting: The real-time computation solution for fluorescnece signal analysis, based on a FPGA-chip, here on board a small affordable computer with web-server, the [RedPitaya](https://github.com/RedPitaya). For a more general discussion of Fluorescence Activated (Microfluidic) Droplet Sorting (FADS), see the [Open Microfluidics repository](https://github.com/MakerTobey/OpenMicrofluidics/tree/master/Open%20Fluorescence%20Activated%20Droplet%20Sorting%20(FADS)), with emphasis on the measurement hardware. FADS is the keystone method of *high-throughput droplet microfluidic* biological assays.
 
@@ -27,6 +28,11 @@ It contains:
 * A [first GUI architecture](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/GUI-Architecture) to look at signals and results,
 
 * And detail on [memory access](https://github.com/wenzel-lab/droplet-sorting-FPGA-control/wiki/Memory-Access) - how to save results back into the memory of the main computer for web-server access.
+
+* This is a diagram of the overall communication architecture of the sorter, around [key communication variables](https://github.com/wenzel-lab/droplet-sorting-FPGA-controller/blob/master/files/droplet_sorter_variables_workinprogress.xlsx). This repository contains the software for the red part - the RedPitaya.
+
+   ![ScreenShot](/files/CommunicationDiagram.jpg?raw=true)
+  
 
 ## Contribute
 
