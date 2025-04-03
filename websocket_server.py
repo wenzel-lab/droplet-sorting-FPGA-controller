@@ -7,7 +7,10 @@ from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 import uvicorn
 
+from typing import Union
+
 import ast
+import csv
 
 from registers_management import write_register
 from voltage_conversion import analog_voltage
@@ -28,17 +31,35 @@ app = FastAPI()
 # Modelo para solicitudes POST
 class RegisterRequest(BaseModel):
     offset: str  # Offset en formato hexadecimal
-    value: int   # Valor en formato decimal
+    value: int  # Valor en formato decimal
+    signed: bool
+
+class GainRequest(BaseModel):
+    values: list
+
 
 @app.post("/register")
 async def set_register(request: RegisterRequest):
     """Escribe un valor en un registro dado un offset."""
     try:
         offset_int = int(request.offset, 16)
-        write_register(offset_int, request.value)
+        write_register(offset_int, request.value, request.signed)
         return JSONResponse(content={"message": "Registro actualizado con éxito"}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+@app.post("/setgain")
+async def set_gain(request: GainRequest):
+    try:
+        # Guardar en archivo .tsv
+        with open("bias_values.tsv", "w", newline="") as file:
+            writer = csv.writer(file, delimiter='\t')
+            data = []
+            for i in range(len(request.values)):
+                data.append([i+1, request.values[i]])
+            writer.writerows(data)
+    except Exception as e:
+        print(e)
 
 @app.get("/download")
 async def download_file():

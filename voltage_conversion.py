@@ -9,7 +9,7 @@ def analog_voltage(digital_voltage,signed):
         max_digital = ((2**ADC_BITS)/2) - 1
     else:
         min_digital = 0
-        max_digital = -(2**ADC_BITS)/2
+        max_digital = (2**ADC_BITS)
 
     m = (MAX_VOLTAGE - MIN_VOLTAGE)/(max_digital-min_digital)
     n = MAX_VOLTAGE - (m*max_digital)
@@ -20,3 +20,20 @@ def analog_voltage(digital_voltage,signed):
         a_volt = m*digital_voltage + n
 
     return a_volt
+
+
+def analog_accum_voltage(digital_voltage,signed):
+
+    if signed:
+        min_digital = -(2**ADC_BITS)/2
+        max_digital = ((2**ADC_BITS)/2) - 1
+    else:
+        min_digital = 0
+        max_digital = (2**ADC_BITS)
+
+    m = (MAX_VOLTAGE - MIN_VOLTAGE)/(max_digital-min_digital)
+    n = MAX_VOLTAGE - (m*max_digital)
+
+    accum_volt = m*digital_voltage + n
+
+    return accum_volt
