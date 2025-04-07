@@ -13,13 +13,6 @@ import ast
 import csv
 
 from registers_management import write_register
-from voltage_conversion import analog_voltage
-
-# Leer el archivo JSON
-with open('config.json', 'r') as file:
-    vars_data = json.load(file)
-
-vars_to_send = vars_data["variables_to_send"]
 
 # Lista de clientes WebSocket conectados
 connected_clients = []
