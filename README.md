@@ -22,6 +22,8 @@ The differences between each image lie in certain modifications made to the `red
 
 To use a specific image on the Red Pitaya hardware, it must be placed in the `root/` directory and renamed to `red_pitaya_uncompressed.bit.bin`.
 
+---
+
 ## Purpose
 
 This implementation supports:
@@ -36,7 +38,7 @@ This implementation supports:
 
 The diagram below shows the architecture of the Redpitaya system, highlighting how the FPGA and processor interact through a shared memory and communication layers:
 
-![System Diagram](image.png)
+![System Diagram](docs/diagram.png)
 
 
 **Functional Components**:
