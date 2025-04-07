@@ -38,7 +38,7 @@ This implementation supports:
 
 The diagram below shows the architecture of the Redpitaya system, highlighting how the FPGA and processor interact through a shared memory and communication layers:
 
-![System Diagram](docs/diagram.pdf)
+![System Diagram](docs/diagram.png)
 
 
 **Functional Components**:
