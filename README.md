@@ -74,9 +74,16 @@ The system uses a configuration file to define each variable information, such a
 
 |Variable Name|Register Address|Size|FPGA Data Type|Converted Data Type|Description|
 |-------------|----------------|----|--------------|-------------------|-----------|
-|`min_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
-|`low_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
-|`high_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
+|`min_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise (peak) threshold detector (1-6)|
+|`low_intensity_thresh`| `0x01020` to `0x01034` | `6` | `int`| `float` (mapped to analog voltage range)| Lower peak intensity sorting threshold for droplets (1-6)|
+|`high_intensity_thresh`| `0x01040` to `0x01054` | `6` | `int`| `float` (mapped to analog voltage range)| Maximum peak intensity sorting threshold for droplets (1-6)|
+|`min_width_thresh`| `0x01060` to `0x01074` | `6` | `int`| `int` | Noise (width = hwfm) threshold detector (1-6)|
+|`low_width_thresh`| `0x01080` to `0x01094` | `6` | `int`| `int` | Lower peak width sorting threshold for droplets (1-6)|
+|`high_width_thresh`| `0x010a0` to `0x010b4` | `6` | `int`| `int`| Maximum peak width sorting threshold for droplets (1-6)|
+|`min_area_thresh`| `0x010c0` to `0x010d4` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| Noise AUC threshold detector (1-6)|
+|`low_area_thresh`| `0x010e0` to `0x010f4` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| Lower AUC sorting threshold for droplets (1-6)|
+|`high_area_thresh`| `0x01100` to `0x01114` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| Maximum AUC sorting threshold for droplets (1-6)|
+|`fads_reset`| `0x20` | `1` | `int`| `int`| Signal to reset the experiment values and classifier loops|
 
 
 You can modify the configuration file to update or expand the set of handled variables. This file is received at the beginning of monitor.py execution, so if it is modified, the mentioned script must be restarted.
