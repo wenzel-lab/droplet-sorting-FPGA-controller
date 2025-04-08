@@ -6,8 +6,6 @@ This repository branch contains the software running on the **Redpitaya processo
 
 ## Key Directories 
 
-### communication-interface/
-
 ### rp-images/
 
 The `rp-images` folder contains different versions of Redpitaya images that have been developed so far. These versions are backed up in case it is necessary to test a previous one, even though it is possible to generate new images using the resources available in the [Pyrpl repository](https://github.com/wenzel-lab/pyrpl/tree/updated-2025).  
@@ -21,6 +19,12 @@ The differences between each image lie in certain modifications made to the `red
 - `red_pitaya_uncompressed-updated.bit.bin`: Last version created from branch `open_fpga_fads` in [Pyrpl repository](https://github.com/wenzel-lab/pyrpl/tree/open_fpga_fads).  
 
 To use a specific image on the Red Pitaya hardware, it must be placed in the `root/` directory and renamed to `red_pitaya_uncompressed.bit.bin`.
+
+### communication-interface/
+
+The `communication-interface` folder contains the files and scripts associated with the monitoring of the registers and voltages, and the implementation of the communication interface through a Websocket Server and HTTP protocol.
+
+The documentation in this `README.md` refers mainly to the codes contained in this folder.
 
 ---
 
@@ -42,22 +46,22 @@ The diagram below shows the architecture of the Redpitaya system, highlighting h
 
 
 **Functional Components**:
-- **FPGA Chip**: Implements the droplet detection and classification algorithm. It activates a digital I/O (DIO) pin when a pulse is detected.
-- **Shared Memory Register Map**: Acts as the communication interface between the FPGA and the processor. Registers are periodically updated with voltage, bias, and classification data.
+- **FPGA Chip**: Implements the droplet detection and classification algorithm. It interacts with the Pulse Board through a digital I/O (DIO) pin that is activated. It also writes to the registers and reads the variables stored in them.
+- **Shared Memory Register Map**: Acts as the communication interface between the FPGA and the processor. 
 - **Redpitaya Processor Software**:
-  - **Monitor Script**: Reads the register data and voltages, updates local memory, and periodically stores new values to files.
-  - **Voltage Conversion Script**: Converts digital register values to analog voltages.
-  - **Registers Management Script**: Writes values to the shared memory map.
-  - **WebSocket and HTTP Server**:
-    - WebSocket for real-time data transmission (registers and voltage history).
-    - HTTP server to receive remote POST requests for parameter updates.
+  - **Monitor Script** (`monitor.py`): Reads the register data and voltages, updates local variables stored in RAM if certain specified conditions are met and, periodically, these local variables are stored in files: `registro_cambios.txt` and `registro_voltaje.json`.
+  - **Voltage Conversion Script** (`voltage_conversion.py`): Converts digital register values to analog voltages.
+  - **Registers Management Script** (`registers_management.py`): Implements a function to write values to the shared memory map.
+  - **WebSocket and HTTP Server** (`websocket_server.py`):
+    - WebSocket for continuous data transmission (last registers values and voltage signal fragment of each channel). The information to send is obtained from the files `registro_cambios.txt` and `registro_voltaje.json`.
+    - HTTP server to receive remote POST requests for parameter updates and for sending the file with the historical values of the registers (`registro_cambios.txt`).
 - **External Files**:
-  - `registro_cambios.txt`: Tracks register change events.
-  - `registro_voltaje.json`: Stores the last voltages per channel.
-  - `bias_values.tsv`: Defines the bias voltages for each channel.
-  - **Configuration File**: Maps each register to a human-readable variable name and metadata (see below).
+  - `registro_cambios.txt`: Stores the historical values of the registers.
+  - `registro_voltaje.json`: Stores the last voltage signal fragment of each channel.
+  - `bias_values.tsv`: Stores the bias voltages for each channel. These values are sent to the Multiplexer Board through SPI protocol.
+  - **Configuration File** (`config.json`): File with the information of the registers and the variables associated with them.
 - **External Boards**:
-  - **Pulse Board**: Provides droplet signal via DIO input.
+  - **Pulse Board**: Provides pulses for the Droplet Sorting System.
   - **Multiplexer Board**: Controlled via SPI from the processor for channel switching.
 
 ---
@@ -79,9 +83,6 @@ You can modify the configuration file to update or expand the set of handled var
 
 
 ## Remote Client
-
-
-## Files Overview
 
 
 ## Development Notes
