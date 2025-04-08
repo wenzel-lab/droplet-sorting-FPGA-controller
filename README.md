@@ -75,6 +75,8 @@ The system uses a configuration file to define each variable information, such a
 |Variable Name|Register Address|Size|FPGA Data Type|Converted Data Type|Description|
 |-------------|----------------|----|--------------|-------------------|-----------|
 |`min_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
+|`low_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
+|`high_intensity_thresh`| `0x01000` to `0x01014` | `6` | `int`| `float` (mapped to analog voltage range)| Noise threshold detector (1-6)|
 
 
 You can modify the configuration file to update or expand the set of handled variables. This file is received at the beginning of monitor.py execution, so if it is modified, the mentioned script must be restarted.
