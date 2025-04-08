@@ -84,6 +84,22 @@ The system uses a configuration file to define each variable information, such a
 |`low_area_thresh`| `0x010e0` to `0x010f4` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| Lower AUC sorting threshold for droplets (1-6)|
 |`high_area_thresh`| `0x01100` to `0x01114` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| Maximum AUC sorting threshold for droplets (1-6)|
 |`fads_reset`| `0x20` | `1` | `int`| `int`| Signal to reset the experiment values and classifier loops|
+|`sort_delay`| `0x24` | `1` | `int`| `int`| Time needed to wait before triggering electrodes|
+|`sort_duration`| `0x28` | `1` | `int`| `int`| Sorting AC pulse length|
+|`signal_duration`| `0x100` | `1` | `int`| `int`| Duration of voltage signal fragment in UI (miliseconds)|
+|`droplet_id`| `0x200` | `1` | `int`| `int`| Unique indetifier for each droplet|
+|`cur_droplet_intensity`| `0x0204` to `0x0218` | `6` | `int`| `float` (mapped to analog voltage range)| Peak intensity data value of last completed droplet (1-6)|
+|`cur_droplet_width`| `0x21c` to `0x230` | `6` | `int`| `int`| Width (fwhm) data value of last completed droplet (1-6)|
+|`cur_droplet_area`| `0x234` to `0x248` | `6` | `int`| `float` (mapped to accumulated analog voltage range)| AUC data value of last completed droplet (1-6)|
+|`cur_time_us`| `0x250` | `1` | `int`| `int`| Current time of the experiment (microseconds)|
+|`droplet_classification`| `0x24c` | `1` | `bits`| `str`| Bit string indicating the FPGA state machine|
+|`enabled_channels`| `0x300` | `1` | `bits`| `str`| Bit string indicating the enabled channels for the experiment|
+|`droplet_sensing_addr`| `0x304` | `1` | `int`| `int`| Reference channel for droplet detection (range 0-5)|
+|`update_cycle`| `0x10018` | `1` | `int`| `int`| Update cycle index to indicate that voltage measurement of all enabled channels is complete|
+|`adc_values`| `0x30c` to `0x320` | `6` | `int`| `float` (mapped to analog voltage range)| Raw voltage values for each detector channel|
+|`cur_adc_data`| `0x10000` to `0x10014` | `6` | `int`| `float` (mapped to analog voltage range)|Average current voltage data for each detector channel over the period of the multiplexer switching|
+|`mux_addr`| `0x00104` | `1` | `int`| `int`| Current multiplexer address (range 0-5)|
+|`mux_ch`| `0x00108` | `1` | `bits`| `str`| Bit string indicating the active channels for multiplexer|
 
 
 You can modify the configuration file to update or expand the set of handled variables. This file is received at the beginning of monitor.py execution, so if it is modified, the mentioned script must be restarted.
