@@ -1,5 +1,10 @@
+# Redpitaya image
+red_pitaya_uncompressed.bit.bin
+
+# Files to store registers and voltage data
 *.json.tmp
 registers_data.txt
 voltage_data.json
 
-red_pitaya_uncompressed.bit.bin
+# pycache folder
+__pycache__/
