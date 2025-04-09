@@ -273,7 +273,7 @@ To make sure that the correct image is always loaded in the FPGA, we will create
       sudo update-rc.d load_rp_image defaults
       ```
 
-  4. **Reboot to verify**
+  4. **Reboot to verify:**
      Execute `sudo reboot` to verify that the image loads automatically at startup. You can verify the status with `sudo systemctl status load_rp_image`.
 
 ## Running Scripts Automatically on Startup as Services
