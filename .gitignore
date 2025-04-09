@@ -6,5 +6,8 @@ red_pitaya_uncompressed.bit.bin
 registers_data.txt
 voltage_data.json
 
+# Bias values file
+bias_values.tsv
+
 # pycache folder
 __pycache__/
