@@ -1,3 +1,5 @@
 *.json.tmp
 registers_data.txt
 voltage_data.json
+
+red_pitaya_uncompressed.bit.bin
