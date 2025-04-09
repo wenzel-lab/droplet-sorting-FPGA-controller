@@ -58,7 +58,7 @@ async def set_register(request: RegisterRequest):
 
 @app.post("/setgain")
 async def set_gain(request: GainRequest):
-     """
+    """
     Sets the gain values and saves them in a .tsv file.
     
     Args:
@@ -67,7 +67,7 @@ async def set_gain(request: GainRequest):
     Returns:
         None: No return value.
     """
-
+    
     try:
         # Save the gain values to the bias_values.tsv file
         with open(bias_file, "w", newline="") as file:

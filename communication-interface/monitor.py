@@ -272,7 +272,6 @@ def save_logs_periodically():
 
 # Thread: periodically write voltage history to disk as JSON
 def save_voltage_periodically():
-   ():
     """
     Saves voltage logs periodically to a JSON file.
     This function runs in an infinite loop, periodically checking the log_voltage for voltage data.

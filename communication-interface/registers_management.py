@@ -7,18 +7,17 @@ STREAM_REGISTER_SIZE = 4        # Size of each register in bytes
 
 
 def write_register(offset, value, signed):
+    """
+    Writes a value to a register at a given offset in memory.
 
-"""
-Writes a value to a register at a given offset in memory.
+    Args:
+        offset (int): Offset from the base memory address.
+        value (int): Value to write.
+        signed (bool): If True, write as signed int. If False, write as unsigned.
 
-Args:
-    offset (int): Offset from the base memory address.
-    value (int): Value to write.
-    signed (bool): If True, write as signed int. If False, write as unsigned.
-
-Raises:
-    RuntimeError: If any error occurs during memory access or writing.
-"""
+    Raises:
+        RuntimeError: If any error occurs during memory access or writing.
+    """
 
     try:
         # Open /dev/mem to access physical memory
