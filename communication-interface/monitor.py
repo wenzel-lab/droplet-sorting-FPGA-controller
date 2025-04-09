@@ -13,7 +13,7 @@ MEMORY_SIZE = 0x20000        # Tamaño de memoria
 STREAM_REGISTER_SIZE = 4     # Tamaño del registro (en bytes)
 
 # Leer el archivo JSON de configuracion
-with open('/root/python_codes/config.json', 'r') as file:
+with open('/root/communication-interface/config.json', 'r') as file:
     vars_data = json.load(file)
 vars_to_send = vars_data["variables_to_send"]
 
@@ -164,7 +164,7 @@ def save_logs_periodically():
         time.sleep(flush_interval)  # Esperar antes de intentar guardar
         with lock:
             if log_buffer:
-                with open('/root/python_codes/registro_cambios.txt', 'a') as log_file:
+                with open('/root/communication-interface/registers_data.txt', 'a') as log_file:
                     for entry in log_buffer:
                         log_file.write(json.dumps(entry) + '\n')
                 log_buffer.clear()
@@ -173,12 +173,12 @@ def save_voltage_periodically():
     """Thread worker para guardar logs de voltaje en un archivo."""
     while True:
         time.sleep(flush_interval)  # Esperar antes de intentar guardar
-        temp_path = "/root/python_codes/registro_voltaje.json.tmp"  # Archivo temporal
+        temp_path = "/root/communication-interface/voltage_data.json.tmp"  # Archivo temporal
         if log_voltage:
             with open(temp_path, "w", encoding="utf-8") as file:
                 json.dump(log_voltage, file) 
             log_voltage.clear()
-            os.replace(temp_path, "/root/python_codes/registro_voltaje.json")
+            os.replace(temp_path, "/root/communication-interface/voltage_data.json")
 
 
 # Inicializar memoria mapeada fuera del bucle
@@ -186,7 +186,7 @@ try:
     with open("/dev/mem", "r+b") as f:
         mem = mmap.mmap(f.fileno(), MEMORY_SIZE, offset=MEMORY_ADDRESS)
         # Vaciar el archivo (sobrescribe el contenido)
-        with open('/root/python_codes/registro_cambios.txt', 'w') as log_file:
+        with open('/root/communication-interface/registers_data.txt', 'w') as log_file:
             log_file.truncate(0) 
 
         # Inicia el thread para guardar datos

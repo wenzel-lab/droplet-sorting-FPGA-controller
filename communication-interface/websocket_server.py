@@ -7,12 +7,14 @@ from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 import uvicorn
 
-from typing import Union
-
 import ast
 import csv
 
 from registers_management import write_register
+
+# bias_values file added to path
+bias_file = os.path.join(os.path.dirname(__file__), '..', 'bias_values.tsv')
+bias_file = os.path.abspath(bias_file)
 
 # Lista de clientes WebSocket conectados
 connected_clients = []
@@ -45,7 +47,7 @@ async def set_register(request: RegisterRequest):
 async def set_gain(request: GainRequest):
     try:
         # Guardar en archivo .tsv
-        with open("bias_values.tsv", "w", newline="") as file:
+        with open(bias_file, "w", newline="") as file:
             writer = csv.writer(file, delimiter='\t')
             data = []
             for i in range(len(request.values)):
@@ -56,11 +58,11 @@ async def set_gain(request: GainRequest):
 
 @app.get("/download")
 async def download_file():
-    file_path = "registro_cambios.txt"  # Nombre fijo del archivo
+    file_path = "registers_data.txt"  # Nombre fijo del archivo
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="Archivo no encontrado")
     try:
-        response = FileResponse(file_path, media_type="application/octet-stream", filename="registro_cambios.txt")
+        response = FileResponse(file_path, media_type="application/octet-stream", filename="registers_data.txt")
         return response
         
     except Exception as e:
@@ -75,13 +77,13 @@ async def websocket_endpoint(websocket: WebSocket):
     print(f"Cliente conectado: {websocket.client}")
     try:
        while True:
-        if os.path.exists("registro_cambios.txt"):
-            with open("registro_cambios.txt", "r") as file:
+        if os.path.exists("registers_data.txt"):
+            with open("registers_data.txt", "r") as file:
                 lineas = file.readlines()
                 if lineas:
                     last_data = ast.literal_eval(lineas[-1].strip())
-                if os.path.exists("registro_voltaje.json"):
-                    with open("registro_voltaje.json", "r", encoding="utf-8") as file:
+                if os.path.exists("voltage_data.json"):
+                    with open("voltage_data.json", "r", encoding="utf-8") as file:
                         last_data["voltage_history"] = json.load(file)
                         message = json.dumps(last_data)
                         for client in connected_clients:

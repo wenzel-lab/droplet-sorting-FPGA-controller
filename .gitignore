@@ -1,0 +1,3 @@
+*.json.tmp
+registers_data.txt
+voltage_data.json
