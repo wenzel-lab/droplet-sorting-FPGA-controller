@@ -2,3 +2,4 @@ websockets
 asyncio
 fastapi
 uvicorn
+pydantic
